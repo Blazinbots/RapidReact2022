@@ -82,7 +82,7 @@ public class Robot extends TimedRobot {
     // Logic for Arm. Only move if not already in that position
     // TODO: This needs to be looked at!
     if(!armPosition && m_cStick.getRawButton(Configuration.Arm.ButtonUp)) {
-      m_pidController.setReference(Configuration.Arm.UpSetpoint, CANSparkMax.ControlType.kPosition);
+      m_pidController.setReference((Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
     } else if (armPosition && m_cStick.getRawButton(Configuration.Arm.ButtonDown)) {
       m_pidController.setReference(-Configuration.Arm.DownSetpoint, CANSparkMax.ControlType.kPosition);
     }
