@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
 
   private final Spark m_leftMotor = new Spark(Configuration.Ports.LeftMotor);
   private final Spark m_rightMotor = new Spark(Configuration.Ports.RightMotor);
-  private final Spark m_intake = new Spark(Configuration.Ports.Intake);
+  private final CANSparkMax m_intake = new CANSparkMax(Configuration.Ports.Intake, MotorType.kBrushed);
 
   private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);
   private final Joystick m_cStick = new Joystick(0);
