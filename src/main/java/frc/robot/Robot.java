@@ -83,8 +83,10 @@ public class Robot extends TimedRobot {
     // TODO: This needs to be looked at!
     if(!armPosition && m_cStick.getRawButton(Configuration.Arm.ButtonUp)) {
       m_pidController.setReference((Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
+      armPosition = !armPosition;
     } else if (armPosition && m_cStick.getRawButton(Configuration.Arm.ButtonDown)) {
       m_pidController.setReference(-(Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
+      armPosition = !armPosition;
     }
 
   }
