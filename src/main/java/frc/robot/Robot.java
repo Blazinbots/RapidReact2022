@@ -72,8 +72,10 @@ public class Robot extends TimedRobot {
     double intake_motor_speed = 0;
     if(m_cStick.getRawButton(Configuration.Intake.IntakeButton)) {
       intake_motor_speed = Configuration.Intake.IntakeSpeed;
+      System.out.println("got intake");
     } else if (m_cStick.getRawButton(Configuration.Intake.ShooterButton)) {
       intake_motor_speed = Configuration.Intake.ShooterSpeed;
+      System.out.println("got shooter");
     } else {
       intake_motor_speed = 0.0;
     }
@@ -81,13 +83,17 @@ public class Robot extends TimedRobot {
 
     // Logic for Arm. Only move if not already in that position
     // TODO: This needs to be looked at!
-    if(!armPosition && m_cStick.getRawButton(Configuration.Arm.ButtonUp)) {
-      m_pidController.setReference((Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
-      armPosition = !armPosition;
-    } else if (armPosition && m_cStick.getRawButton(Configuration.Arm.ButtonDown)) {
-      m_pidController.setReference(-(Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
-      armPosition = !armPosition;
-    }
+    // if(/*!armPosition &&*/ m_cStick.getRawButton(Configuration.Arm.ButtonUp)) {
+    //   // m_pidController.setReference((Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
+    //   m_motor.set(1);
+    //   armPosition = !armPosition;
+    //   System.out.println("got arm up");
+    // } else if (!m_cStick.getRawButton(Configuration.Arm.ButtonDown)) {
+    //   // m_pidController.setReference(-(Configuration.Arm.UpSetpoint/360)*Configuration.Arm.GearRatio, CANSparkMax.ControlType.kPosition);
+    //   armPosition = !armPosition;
+    //   m_motor.set(0);
+    //   System.out.println("got arm down");
+    // }
 
   }
 

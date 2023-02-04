@@ -20,8 +20,8 @@ public class Configuration {
     public class Ports {
         static final int LeftMotor = 0;
         static final int RightMotor = 1;
-        static final int Intake = 2;
-        static final int Arm = 3;
+        static final int Intake = 3;
+        static final int Arm = 2;
     }
 
     public class Intake {
@@ -43,7 +43,7 @@ public class Configuration {
         static final int UpSetpoint = 45;
 
         // Controller gains, PID coefficients
-        static final double kP = 0.005; 
+        static final double kP = 0.5; 
         static final double kI = 0.0;
         static final double kD = 0.0; 
         static final double kIz = 0.0; 
@@ -52,8 +52,10 @@ public class Configuration {
         static final double kMinOutput = -1.0;
 
         // Arm Buttons
-        static final int ButtonUp = Controller.BUTTON_LT;
-        static final int ButtonDown = Controller.BUTTON_RT;
+        //static final int ButtonUp = Controller.BUTTON_LT;
+        //static final int ButtonDown = Controller.BUTTON_RT;
+        static final int ButtonUp = Controller.BUTTON_X;
+        static final int ButtonDown = Controller.BUTTON_Y;
     }
 
 }
